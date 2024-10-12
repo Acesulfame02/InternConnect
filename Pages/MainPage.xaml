@@ -1,0 +1,112 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:InternConnect.ViewModels"
+             Shell.NavBarIsVisible="False"
+             x:Class="InternConnect.Pages.MainPage">
+
+    <ContentPage.BindingContext>
+        <vm:AuthenticationViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout VerticalOptions="Center" 
+                             HorizontalOptions="Center"
+                             Padding="30,50,30,30">
+
+            <!-- Logo -->
+            <Image Source="intern_logo.png" 
+                   WidthRequest="200" 
+                   HeightRequest="120"
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Start"/>
+
+            <!-- Email Entry -->
+            <Entry Placeholder="Email" 
+                   Text="{Binding AuthModel.Username}"
+                   Keyboard="Email"
+                   Margin="0,30,0,10"
+                   BackgroundColor="Transparent"
+                   TextColor="Black"
+                   HeightRequest="45"
+                   HorizontalOptions="FillAndExpand"
+                   PlaceholderColor="#888"/>
+
+            <!-- Password Entry -->
+            <Entry Placeholder="Password" 
+                   Text="{Binding AuthModel.Password}"
+                   IsPassword="True"
+                   Margin="0,10,0,10"
+                   BackgroundColor="Transparent"
+                   TextColor="Black"
+                   HeightRequest="45"
+                   HorizontalOptions="FillAndExpand"
+                   PlaceholderColor="#888"
+                   />
+
+            <!-- Sign In Button -->
+            <Button Text="Sign In"
+                    Command="{Binding SignInWithEmailBtn}"
+                    BackgroundColor="#339af0"
+                    TextColor="White"
+                    CornerRadius="25"
+                    HeightRequest="45"
+                    HorizontalOptions="FillAndExpand"
+                    Margin="0,10,0,10"/>
+
+            <!-- Google Sign In Button -->
+            <Button Text="Continue with Google" 
+                    Margin="0,10,0,10"
+                    BackgroundColor="Transparent"
+                    TextColor="Black"
+                    ImageSource="google.png"
+                    Command="{Binding SignInWithGoogleBtn}"
+                    CornerRadius="25"
+                    HeightRequest="45"
+                    HorizontalOptions="FillAndExpand"
+                    BorderColor="#db4437"
+                    BorderWidth="1"/>
+
+            <!-- Signup Link -->
+            <HorizontalStackLayout HorizontalOptions="Center" Margin="0,20,0,0">
+                <Label Text="Don't have an account? "
+                       FontSize="14"
+                       HorizontalOptions="End"
+                       VerticalOptions="Center"/>
+                <Button Text="SignUp"
+                        TextColor="#c411ee"
+                        FontSize="14"
+                        BackgroundColor="Transparent"
+                        Command="{Binding GotoSignUpPageBtn}"
+                        VerticalOptions="Center"/>
+            </HorizontalStackLayout>
+
+            <!-- Terms and Conditions -->
+            <HorizontalStackLayout HorizontalOptions="Center" Margin="0,10,0,0">
+                <Label Text="By signing up, you agree to our "
+                       FontSize="12"
+                       TextColor="Gray"
+                       VerticalOptions="Center"/>
+                <Button Text="Terms and Conditions"
+                        FontSize="12"
+                        TextColor="Blue"
+                        BackgroundColor="Transparent"
+                        VerticalOptions="Center"/>
+            </HorizontalStackLayout>
+
+            <!-- Privacy Policy -->
+            <HorizontalStackLayout HorizontalOptions="Center" Margin="0,0,0,10">
+                <Label Text="See how we use your data in our "
+                       FontSize="12"
+                       TextColor="Gray"
+                       VerticalOptions="Center"/>
+                <Button Text="Privacy Policy"
+                        FontSize="12"
+                        TextColor="Blue"
+                        BackgroundColor="Transparent"
+                        VerticalOptions="Center"/>
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

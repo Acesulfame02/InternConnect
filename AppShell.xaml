@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="InternConnect.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:pages="clr-namespace:InternConnect.Pages"
+    xmlns:utils="clr-namespace:InternConnect.PageUtils"
+    Shell.FlyoutBehavior="Disabled"
+    Title="InternConnect">
+
+    <Shell.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="#e2dada" StatusBarStyle="DarkContent" />
+    </Shell.Behaviors>
+
+    <ShellContent
+        Title="Land"
+        ContentTemplate="{DataTemplate pages:MainPage}"
+        Route="MainPage" />
+
+    <TabBar>
+        <ShellContent
+            Title="Home"
+            Icon="home.png"
+            ContentTemplate="{DataTemplate pages:HomePage}"
+            Route="HomePage" />
+        <ShellContent
+            Title="Discover"
+            Icon="discover.png"
+            ContentTemplate="{DataTemplate pages:DiscoverPage}"
+            Route="DiscoverPage" />
+        <ShellContent
+            Title="Profile"
+            Icon="profile.png"
+            ContentTemplate="{DataTemplate pages:ProfilePage}"
+            Route="ProfilePage" />
+    </TabBar>
+
+    <ShellContent Title="SignUp" ContentTemplate="{DataTemplate pages:SignUpPage}" Route="SignUpPage"/>
+    <ShellContent Title="ProfileForm" ContentTemplate="{DataTemplate utils:ProfileAuthUtil}" Route="ProfileAuthUtil"/>
+</Shell>

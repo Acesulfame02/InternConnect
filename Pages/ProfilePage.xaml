@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:vm="clr-namespace:InternConnect.ViewModels"
+             x:Class="InternConnect.Pages.ProfilePage"
+             Shell.NavBarIsVisible="False"
+             Title="ProfilePage">
+
+    <ContentPage.BindingContext>
+        <vm:ProfileViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="#FFFFFF" StatusBarStyle="DarkContent" />
+    </ContentPage.Behaviors>
+    <Grid Padding="20" RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto" ColumnDefinitions="*, *" RowSpacing="20">
+        <!-- Profile picture -->
+        <Frame HeightRequest="150"
+                   WidthRequest="150"
+                   Grid.ColumnSpan="2"
+                   CornerRadius="70"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   IsClippedToBounds="True"
+                   BorderColor="Gray">
+            <Image Source="profile_image.png" 
+                   Grid.ColumnSpan="1"
+                   HeightRequest="150" 
+                   WidthRequest="150"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   Aspect="AspectFill"/>
+        </Frame>
+
+        <!-- Edit Icon Overlay on Image -->
+        <Image Source="edit.png" 
+               Grid.Row="0" 
+               Grid.Column="1"
+               HeightRequest="25" 
+               WidthRequest="25"
+               VerticalOptions="End" 
+               HorizontalOptions="End"
+               Margin="0,0,110,10"/>
+
+        <!-- Full name label -->
+        <Label Grid.Row="1" Grid.ColumnSpan="2"
+               Text="FULLNAME"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               FontSize="24"
+               FontAttributes="Bold"
+               Margin="0,20,0,20"/>
+
+        <!-- Profile menu options -->
+        <StackLayout Grid.Row="2" Grid.ColumnSpan="2" Spacing="15">
+            <StackLayout Orientation="Horizontal">
+                <Label Text="YOUR PROFILE" 
+                        HorizontalOptions="StartAndExpand"
+                        VerticalOptions="Center"
+                        BackgroundColor="Transparent"
+                        TextColor="Black"
+                        FontSize="16"
+                        FontAttributes="Bold"/>
+                <Image Source="next.png" 
+                        HeightRequest="20" 
+                        WidthRequest="20"
+                        VerticalOptions="End" 
+                        HorizontalOptions="End"/>
+            </StackLayout>
+            <BoxView
+                    HeightRequest="1"
+                    BackgroundColor="LightGray"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="End"/>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="EDUCATION" 
+                        HorizontalOptions="StartAndExpand"
+                        VerticalOptions="Center"
+                        BackgroundColor="Transparent"
+                        TextColor="Black"
+                        FontSize="16"
+                        FontAttributes="Bold"/>
+                <Image Source="next.png" 
+                        HeightRequest="20" 
+                        WidthRequest="20"
+                        VerticalOptions="End" 
+                        HorizontalOptions="End"/>
+            </StackLayout>
+            <BoxView
+                    HeightRequest="1"
+                    BackgroundColor="LightGray"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="End"/>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="HELP CENTER" 
+                        HorizontalOptions="StartAndExpand"
+                        VerticalOptions="Center"
+                        BackgroundColor="Transparent"
+                        TextColor="Black"
+                        FontSize="16"
+                        FontAttributes="Bold"/>
+                <Image Source="next.png" 
+                        HeightRequest="20" 
+                        WidthRequest="20"
+                        VerticalOptions="End" 
+                        HorizontalOptions="End"/>
+            </StackLayout>
+            <BoxView
+                    HeightRequest="1"
+                    BackgroundColor="LightGray"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="End"/>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="SETTINGS" 
+                        HorizontalOptions="StartAndExpand"
+                        VerticalOptions="Center"
+                        BackgroundColor="Transparent"
+                        TextColor="Black"
+                        FontSize="16"
+                        FontAttributes="Bold"/>
+                <Image Source="next.png" 
+                        HeightRequest="20" 
+                        WidthRequest="20"
+                        VerticalOptions="End" 
+                        HorizontalOptions="End"/>
+            </StackLayout>
+            <BoxView
+                    HeightRequest="1"
+                    BackgroundColor="LightGray"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="End"/>
+        </StackLayout>
+    </Grid>
+</ContentPage>

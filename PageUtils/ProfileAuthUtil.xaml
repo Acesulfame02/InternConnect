@@ -1,0 +1,83 @@
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:vm="clr-namespace:InternConnect.PageUtilsViewModel"
+             x:Class="InternConnect.PageUtils.ProfileAuthUtil"
+             Size="350,600">
+
+    <toolkit:Popup.BindingContext>
+        <vm:ProfileUtilViewModel />
+    </toolkit:Popup.BindingContext>
+
+    <VerticalStackLayout Padding="20" Spacing="50" BackgroundColor="#f4f1f1">
+        <!-- Email Field -->
+        <Entry Placeholder="Email"
+               PlaceholderColor="Black"
+               Text="{Binding ProfileModel.Email}"
+               Keyboard="Email"
+               HeightRequest="50"
+               VerticalOptions="Center">
+            <Entry.ClearButtonVisibility>WhileEditing</Entry.ClearButtonVisibility>
+        </Entry>
+
+        <!-- Username Field -->
+        <Entry Placeholder="Username"
+               PlaceholderColor="Black"
+               Text="{Binding ProfileModel.Username}"
+               HeightRequest="50"
+               VerticalOptions="Center">
+            <Entry.ClearButtonVisibility>WhileEditing</Entry.ClearButtonVisibility>
+        </Entry>
+
+        <!-- Phone Number Field with Country Code -->
+        <Grid>
+            <Picker  
+                    Title="+260"
+                    ItemsSource="{Binding CountryCodes}"
+                    SelectedItem="{Binding SelectedCountryCode}"
+                    WidthRequest="80"
+                    TextColor="Black"
+                    VerticalOptions="Start"
+                    Margin="0,10, 0, 0"
+                    HorizontalOptions="Start"/>
+            <Entry Placeholder="Enter 9 digit number"
+                   Text="{Binding ProfileModel.PhoneNumber}"
+                   VerticalOptions="End"
+                   HorizontalOptions="End"
+                   PlaceholderColor="Black"
+                   WidthRequest="230"
+                   TextColor="Black"
+                   Keyboard="Telephone"
+                   HeightRequest="50">
+                <Entry.ClearButtonVisibility>WhileEditing</Entry.ClearButtonVisibility>
+            </Entry>
+        </Grid>
+
+        <!-- Address Field -->
+        <Entry Placeholder="Address: 5th street, Chinsali, Zambia"
+               Text="{Binding ProfileModel.Address}"
+               PlaceholderColor="Black"
+               HeightRequest="50"
+               VerticalOptions="Center">
+            <Entry.ClearButtonVisibility>WhileEditing</Entry.ClearButtonVisibility>
+        </Entry>
+
+        <!-- Save Button -->
+        <Button Text="Save"
+                Command="{Binding SaveProfileBtn}"
+                BackgroundColor="#1E90FF"
+                TextColor="White"
+                CornerRadius="25"
+                HeightRequest="50"
+                VerticalOptions="EndAndExpand"/>
+        <!-- Cancel Button -->
+        <Button Text="Cancel"
+                Command="{Binding CancelCommand}"
+                BackgroundColor="Gray"
+                TextColor="White"
+                CornerRadius="25"
+                HeightRequest="50"
+                VerticalOptions="EndAndExpand"/>
+
+    </VerticalStackLayout>
+</toolkit:Popup>
